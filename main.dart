@@ -301,14 +301,27 @@ void Knock16() {
 //knock17 要素数10の整数型の配列を宣言し、i番目の要素の初期値をiとし、順に値を表示するプログラムを作成せよ。
 void Knock17() {
   print('knock17 要素数10の整数型の配列を宣言し、i番目の要素の初期値をiとし、順に値を表示するプログラム');
-  List<int> listKnock17 = []..length = 10;
+  List<int> listKnock17 = [];
+  for (var i = 0; i < 10; i++) {
+    listKnock17.add(i);
+  }
+  print(listKnock17);
 }
 
 //knock18 要素数10の整数型の配列を宣言し、整数値を入力させ、すべての配列の要素を入力値として、すべての要素の値を表示するプログラムを作成せよ。
 void Knock18() {
   print(
       'knock18 要素数10の整数型の配列を宣言し、整数値を入力させ、すべての配列の要素を入力値として、すべての要素の値を表示するプログラム');
-  List<int> listKnock18 = []..length = 10;
+  List<int> listKnock18 = [];
+  for (var i = 0; i < 10; i++) {
+    listKnock18.add(i);
+  }
+  print(listKnock18);
+  print('整数を入力 : ');
+  var knock18 = int.parse(io.stdin.readLineSync()!);
+  print('input number : $knock18');
+  listKnock18 = listKnock18 = listKnock18.map((num) => knock18).toList();
+  print(listKnock18);
 }
 
 //knock19 要素数5の整数型の配列を宣言し、すべての配列に対して順に入力された整数値を代入し、すべての要素の値を表示するプログラムを作成せよ。
@@ -503,15 +516,25 @@ void Knock29() {
 //knock30 整数値を入力させ、その個数だけ*を表示するプログラムを作成せよ。入力値が0以下の値の場合は何も書かなくてよい。
 void Knock30() {
   print('knock30 整数値を入力させ、その個数だけ*を表示するプログラム');
-  int knock30 = 7;
+  print('整数を入力 :');
+  var knock30 = int.parse(io.stdin.readLineSync()!);
   print('input number : $knock30');
-  while (knock30-- > 0);
-  print('*');
+  for (var i = 0; i < knock30; i++) {
+    print('*');
+  }
 }
 
 //knock31 整数値を入力させ、その個数だけ*を、5個おきに空白（スペース）を入れて表示するプログラムを作成せよ。入力値が0以下の値の場合は何も書かなくてよい。
 void Knock31() {
-  print('knock31');
+  print('knock31 整数値を入力させ、その個数だけ*を、5個おきに空白（スペース）を入れて表示するプログラム');
+  var knock31 = int.parse(io.stdin.readLineSync()!);
+  print('input number : $knock31');
+  for (var i = 1; i < knock31; i++) {
+    print('*');
+    if (i % 5 == 0 && i != 0) {
+      print('*\n');
+    }
+  }
 }
 
 //knock32 1から20まで順に表示するが、5の倍数の場合は数字の代わりにbarと表示するプログラムを作成せよ。
