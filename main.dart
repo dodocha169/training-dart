@@ -1,6 +1,7 @@
 // ignore_for_file: unused_local_variable, unused_import, unused_element
 //stdin.readLineSync(encoding:Encoding.getByName('utf-8'));
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io' as io;
 import 'dart:math';
 
@@ -532,7 +533,7 @@ void Knock31() {
   for (var i = 1; i < knock31; i++) {
     print('*');
     if (i % 5 == 0 && i != 0) {
-      print('*\n');
+      print('\n*');
     }
   }
 }
@@ -685,16 +686,62 @@ void Knock42() {
 void Knock43() {
   print(
       'knock43 2次方程式 ax^2 + bx + c = 0 （x^2はxの2乗の意味）の係数a, b, cを入力し、2次方程式の解が2つの実数解か、重解か、2つの虚数解かを判別するプログラム');
+  print('係数a,b,cを入力 : ');
+  var knock43 = io.stdin.readLineSync()!.split(' ').map(int.parse).toList();
+  var knock43a = knock43[0];
+  var knock43b = knock43[1];
+  var knock43c = knock43[2];
+  print('input a : $knock43a');
+  print('input b : $knock43b');
+  print('input c : $knock43c');
+  var discriminant = pow(knock43b, 2) - 4 * knock43a * knock43c;
+  if (knock43a == 0) {
+    print('解なし');
+  } else if (discriminant > 0) {
+    var answer1 = (-knock43b + sqrt(discriminant)) / (2 * knock43a);
+    var answer2 = (-knock43b - sqrt(discriminant)) / (2 * knock43a);
+    print('x = $answer1,$answer2 ---異なる実数解');
+  } else if (discriminant == 0) {
+    var answer1 = -knock43b / (2 * knock43a);
+    var answer2 = answer1;
+    print('x = $answer1 ---二重解');
+  } else {
+    var real = -knock43b / (2 * knock43a);
+    var imag = sqrt(-discriminant) / (2 * knock43a);
+    print('x = $real, $imag ---異なる虚数解');
+  }
+  return;
 }
 
 //knock44 換算したい金額（円単位）と1ドル何円かを整数値で入力すると、入力した金額が何ドル何セントか計算して表示するプログラムを作成せよ。1セントは1/100ドルである。結果は整数値でよい（1セント未満の端数切り捨て）。
 void Knock44() {
   print('knock44 換算したい金額（円単位）と1ドル何円かを整数値で入力すると、入力した金額が何ドル何セントか計算して表示するプログラム');
+  print('何円? :');
+  var yen = int.parse(io.stdin.readLineSync()!);
+  print('何円? : $yen');
+  print('1ドルは何円? : ');
+  var rate = int.parse(io.stdin.readLineSync()!);
+  print('1ドルは何円? : $rate');
+  var dollars = yen ~/ rate;
+  var cents = (yen % rate) * 100 ~/ rate;
+  print('$yen円は$dollarsドル$centsセント');
 }
 
 //knock45 初乗り料金が1700mまで610円、それ以降は313mごとに80円のタクシーがある。このタクシーに乗った距離をm単位で入力し、料金を計算するプログラムを作成せよ。
 void Knock45() {
+  int base = 610;
+  int price = 0;
   print('knock45 タクシーに乗った距離をm単位で入力し、料金を計算するプログラム');
+  print('距離を入力 :');
+  var distance = int.parse(io.stdin.readLineSync()!);
+  print('距離 : $distance');
+  if (distance < 1700) {
+    price = base;
+  } else {
+    double increase = distance - 1700;
+    double number = increase / 313;
+    price = Double() as int;
+  }
 }
 
 //knock46 神山美術館の入場料金は、一人600円であるが、5人以上のグループなら一人550円、20人以上の団体なら一人500円である。人数を入力し、入場料の合計を計算するプログラムを作成せよ。
