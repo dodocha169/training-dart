@@ -4,7 +4,13 @@ import 'dart:io' as io;
 void Knock47() {
   print('knock47 整数値を2つ入力し、それぞれ変数に格納した後値を入れ替えるプログラム');
   print('整数を2つ入力 : ');
-  final num = io.stdin.readLineSync()!.split(" ").map(int.parse).toList();
-  final a = num[0];
-  final b = num[1];
+  var num = io.stdin.readLineSync()!.split(" ").map(int.parse).toList();
+  var a = num[0];
+  var b = num[1];
+  print('input a : $a');
+  print('input b : $b');
+  int w = a;
+  a = b;
+  b = w;
+  print('a = $a, b = $b');
 }

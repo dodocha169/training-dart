@@ -55,6 +55,9 @@ import 'knock47.dart';
 import 'knock48.dart';
 import 'knock49.dart';
 import 'knock50.dart';
+import 'knock51.dart';
+import 'knock52.dart';
+import 'knock53.dart';
 
 void main() {
   print('input question number : ');
@@ -163,5 +166,11 @@ void main() {
       return (Knock49());
     case 50:
       return (Knock50());
+    case 51:
+      return (Knock51());
+    case 52:
+      return (Knock52());
+    case 53:
+      return (Knock53());
   }
 }

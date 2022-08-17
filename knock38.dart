@@ -8,6 +8,10 @@ import 'dart:math';
 void Knock38() {
   print(
       'knock38 最初は参照する要素番号を0とし、この参照する要素番号の配列要素の値を表示し、次にその配列要素の値を次の参照する要素番号とし、この次の参照する要素番号の配列要素の値を表示し、さらにその配列要素の値を次の参照する要素番号とし、……を10回繰り返すプログラム');
-  List listKnock38 = [3, 7, 0, 8, 4, 1, 9, 6, 5, 2];
-  print(listKnock38);
+  var list = [3, 7, 0, 8, 4, 1, 9, 6, 5, 2];
+  print(list);
+  for (var i = 0; i < 10; i++) {
+    var resultIndex = list[i];
+    var result = list[resultIndex];
+  }
 }
